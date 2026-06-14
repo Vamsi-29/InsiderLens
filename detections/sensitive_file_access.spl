@@ -1,0 +1,3 @@
+index=windows EventCode=4663
+(Object_Name="*Finance*" OR Object_Name="*Customer_Data*" OR Object_Name="*HR*")
+| stats count by user Object_Name
