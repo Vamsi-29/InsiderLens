@@ -5,12 +5,12 @@ The platform simulates a real-world insider threat scenario where an employee at
 
 Splunk is used to ingest endpoint telemetry, correlate suspicious behaviors, assign risk scores, and generate actionable alerts.
 
-## Objectives
-# Detect unauthorized access to sensitive data
-# Identify abnormal file access patterns
-# Detect archive creation of sensitive documents
-# Monitor USB device usage
-# Detect PowerShell-based data exfiltration
-# Identify log tampering attempts
-# Generate risk-based alerts
-# Reduce SOC analyst investigation time
+# Objectives
+### Detect unauthorized access to sensitive data
+### Identify abnormal file access patterns
+### Detect archive creation of sensitive documents
+### Monitor USB device usage
+### Detect PowerShell-based data exfiltration
+### Identify log tampering attempts
+### Generate risk-based alerts
+### Reduce SOC analyst investigation time
