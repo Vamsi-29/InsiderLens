@@ -1,16 +1,50 @@
 # InsiderLens
-InsiderLens is a SOC-focused detection engineering project designed to identify malicious insider activity before sensitive data leaves an organization.
 
-The platform simulates a real-world insider threat scenario where an employee attempts to access confidential data, compress files, transfer data through USB devices, upload archives to cloud storage, and erase forensic evidence.
+**Splunk SIEM detection engineering for insider threats and data exfiltration.**
 
-Splunk is used to ingest endpoint telemetry, correlate suspicious behaviors, assign risk scores, and generate actionable alerts.
+InsiderLens simulates a realistic insider-threat scenario in which an employee accesses sensitive information, creates archives, transfers data through removable media, uploads data to cloud storage, and attempts to remove forensic evidence.
 
-# Objectives
-### Detect unauthorized access to sensitive data
-### Identify abnormal file access patterns
-### Detect archive creation of sensitive documents
-### Monitor USB device usage
-### Detect PowerShell-based data exfiltration
-### Identify log tampering attempts
-### Generate risk-based alerts
-### Reduce SOC analyst investigation time
+## What it demonstrates
+
+- Windows Security Log and endpoint telemetry analysis
+- Suspicious access to sensitive files
+- Archive creation involving sensitive data
+- USB/removable-media activity monitoring
+- PowerShell-based data-exfiltration detection
+- Log-clearing / anti-forensics detection
+- Risk-based alerting and SOC triage
+- MITRE ATT&CK-oriented detection thinking
+
+## Detection engineering
+
+The repository contains custom SPL detections under [`detections/`](./detections). The current detection set includes a sensitive-file-access rule based on Windows Event ID 4663 and patterns for Finance, Customer Data and HR resources.
+
+Example:
+
+```spl
+index=windows EventCode=4663
+(Object_Name="*Finance*" OR Object_Name="*Customer_Data*" OR Object_Name="*HR*")
+| stats count by user Object_Name
+```
+
+## Architecture
+
+```text
+Windows / Sysmon telemetry
+          ↓
+       Splunk
+          ↓
+Correlation + SPL detections
+          ↓
+   Risk scoring / triage
+          ↓
+   SOC investigation
+```
+
+## Project goals
+
+The goal is to demonstrate how endpoint telemetry can be converted into practical detections that help a SOC analyst identify suspicious insider activity before sensitive data leaves an organization.
+
+## Status
+
+Active portfolio project. Additional detections and investigation workflows can be added as the project evolves.
