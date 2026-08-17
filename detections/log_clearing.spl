@@ -1,0 +1,3 @@
+index=windows EventCode=1102
+| stats count values(EventType) as EventType by user, host
+| sort - count
