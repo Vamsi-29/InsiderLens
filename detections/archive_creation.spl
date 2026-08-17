@@ -1,0 +1,5 @@
+index=windows EventCode=1
+(Image="*\\7z.exe" OR Image="*\\7za.exe" OR Image="*\\rar.exe" OR Image="*\\tar.exe" OR CommandLine="*Compress-Archive*")
+| eval archive_tool=coalesce(Image,"PowerShell Compress-Archive")
+| stats count values(CommandLine) as CommandLine by user, host, archive_tool
+| sort - count
