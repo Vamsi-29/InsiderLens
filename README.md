@@ -27,6 +27,18 @@ index=windows EventCode=4663
 | stats count by user Object_Name
 ```
 
+### Analyst triage workflow
+
+The sensitive-file-access detection is intended as a starting signal rather than a standalone verdict. A SOC analyst can investigate the alert by:
+
+1. Identifying the `user` and accessed `Object_Name` returned by the search.
+2. Reviewing the surrounding Windows events for the same user and time window.
+3. Correlating the access with other endpoint activity such as archive creation, removable-media use, PowerShell execution, or log-clearing activity.
+4. Checking whether the accessed resource and user activity are expected for the user's role.
+5. Escalating the event when multiple suspicious behaviors form a consistent data-exfiltration sequence.
+
+This keeps the detection focused on **behavioral correlation and analyst investigation**, rather than treating a single file-access event as proof of malicious activity.
+
 ## Architecture
 
 ```text
