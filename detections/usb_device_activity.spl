@@ -1,0 +1,4 @@
+index=windows EventCode=6416
+| search (DeviceDescription="*USB*" OR ClassName="*USB*")
+| stats count values(DeviceDescription) as DeviceDescription values(ClassName) as ClassName by user, host
+| sort - count
