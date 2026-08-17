@@ -1,0 +1,4 @@
+index=windows EventCode=4104
+(ScriptBlockText="*Invoke-WebRequest*" OR ScriptBlockText="*Start-BitsTransfer*" OR ScriptBlockText="*UploadFile*" OR ScriptBlockText="*WebClient*" OR ScriptBlockText="*curl *" OR ScriptBlockText="*certutil *")
+| stats count values(ScriptBlockText) as ScriptBlockText by user, host
+| sort - count
