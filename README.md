@@ -30,6 +30,18 @@ Current SPL detections are stored under [`detections/`](./detections):
 
 See [`docs/DETECTION_CATALOG.md`](./docs/DETECTION_CATALOG.md) for telemetry prerequisites, ATT&CK-oriented technique mapping, investigation guidance, and validation considerations.
 
+## Detection-engineering documentation
+
+The repository also documents the reasoning around the detections:
+
+- [`THREAT_MODEL.md`](./docs/THREAT_MODEL.md) — assets, threat assumptions, attack sequence, telemetry requirements, and detection boundaries.
+- [`DETECTION_CATALOG.md`](./docs/DETECTION_CATALOG.md) — detection coverage, telemetry prerequisites, technique focus, and validation requirements.
+- [`CORRELATION_MODEL.md`](./docs/CORRELATION_MODEL.md) — how weak signals are correlated by user, host, and time window.
+- [`FALSE_POSITIVE_TUNING.md`](./docs/FALSE_POSITIVE_TUNING.md) — methodology for baseline analysis, allowlisting, tuning, and documenting blind spots.
+- [`VALIDATION.md`](./tests/VALIDATION.md) — synthetic test scenarios and validation requirements.
+
+Together these artifacts show the workflow from **threat model → telemetry → detection → correlation → tuning → validation → SOC investigation**.
+
 ## Example: sensitive file access
 
 ```spl
