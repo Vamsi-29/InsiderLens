@@ -37,6 +37,7 @@ The repository also documents the reasoning around the detections:
 - [`THREAT_MODEL.md`](./docs/THREAT_MODEL.md) — assets, threat assumptions, attack sequence, telemetry requirements, and detection boundaries.
 - [`DETECTION_CATALOG.md`](./docs/DETECTION_CATALOG.md) — detection coverage, telemetry prerequisites, technique focus, and validation requirements.
 - [`CORRELATION_MODEL.md`](./docs/CORRELATION_MODEL.md) — how weak signals are correlated by user, host, and time window.
+- [`INVESTIGATION_WORKFLOW.md`](./docs/INVESTIGATION_WORKFLOW.md) — structured analyst triage, evidence collection, confidence assessment, and investigation documentation.
 - [`FALSE_POSITIVE_TUNING.md`](./docs/FALSE_POSITIVE_TUNING.md) — methodology for baseline analysis, allowlisting, tuning, and documenting blind spots.
 - [`VALIDATION.md`](./tests/VALIDATION.md) — synthetic test scenarios and validation requirements.
 
@@ -60,6 +61,8 @@ This is a starting signal for investigation. A high-quality detection workflow s
 4. Determine whether the activity is consistent with the user's role and normal behavior.
 5. Correlate multiple signals when available instead of relying on one event.
 6. Document the evidence, confidence, impact, and recommended response.
+
+For a detailed investigation worksheet and evidence-handling sequence, see [`docs/INVESTIGATION_WORKFLOW.md`](./docs/INVESTIGATION_WORKFLOW.md).
 
 ## Architecture
 
