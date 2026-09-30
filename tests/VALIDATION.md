@@ -24,6 +24,23 @@ For each detection:
 5. Record whether the expected signal appears.
 6. Document false positives and tune the query.
 
+## Evidence to record
+
+For each validation run, record enough information for another analyst to reproduce and review the result:
+
+| Field | What to record |
+|---|---|
+| Detection | SPL filename and version/commit tested |
+| Dataset | Synthetic, benign, or controlled suspicious data |
+| Telemetry | Event ID, sourcetype, and fields available |
+| Expected | Behavior the detection should identify |
+| Observed | Whether the expected signal appeared |
+| False positives | Benign matches and their reason |
+| Tuning | Query changes made, if any |
+| Blind spots | Required telemetry or behaviors not covered |
+
+Do not store real credentials, tokens, personal data, or sensitive production logs in this repository. Prefer synthetic or sanitized validation data.
+
 ## Success criteria
 
 A detection should not be considered production-ready merely because the SPL returns results. Validation should demonstrate that it identifies the intended behavior while keeping false positives manageable and documenting the telemetry assumptions.
